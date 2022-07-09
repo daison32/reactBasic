@@ -5,18 +5,23 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+        ID:         1,
+				Content:    "しゅくだい",
+				IsComplete: true,
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p>
+        ID:         2,
+				Content:    "おつかい",
+				IsComplete: true,
+        </p>
+        <p>
+        ID:         3,
+				Content:    "さんぽ",
+				IsComplete: false,
+        </p>
+
       </header>
     </div>
   );
