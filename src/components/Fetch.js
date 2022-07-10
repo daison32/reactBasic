@@ -2,13 +2,13 @@ import React, {useState, useEffect} from 'react'
 
 const Fetch = () => {
 
-    const [posts, setPosts] = useState([])
-
+    const [tasks, settasks] = useState([])
+    
     useEffect(() => {
         fetch('https://gorensyu.herokuapp.com/tasks', {method: 'GET'})
         .then(res => res.json())
         .then(data => {
-            setPosts(data)
+            settasks(data)
         })
     },[])
 
@@ -17,12 +17,12 @@ const Fetch = () => {
             <ul>
 
 
-{
-          posts[0].map(post => 
+        {
+          tasks.map(post => 
             <li key={post.id}>{post.content}</li>
             )
         }
-        {}
+        
             </ul>
 
         </div>
