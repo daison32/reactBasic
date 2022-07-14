@@ -13,7 +13,12 @@ const Post = () => {
   const eventHandler = (event) => {
     fetch('http://localhost:8080/tasks', {
       method: 'POST',
-      body: JSON.stringify(formData),
+      handlers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        content:formData
+      }),
     })
       .then((res) => res.json())
       .then((result) => {
