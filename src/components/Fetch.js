@@ -6,6 +6,7 @@ const Fetch = () => {
 
   useEffect(() => {
     fetch("https://gorensyu.herokuapp.com/tasks", { method: "GET" })
+    
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
