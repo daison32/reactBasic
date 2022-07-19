@@ -9,7 +9,7 @@ const Post = () => {
   }
 
   const eventHandler = () => {
-    fetch('http://localhost:8080/tasks', {
+    fetch('https://gorensyu.herokuapp.com/tasks', {
       method: 'POST',
       handlers: {
         'Content-Type': 'application/json',
@@ -17,12 +17,17 @@ const Post = () => {
       body: JSON.stringify(formData),
     })
       .then((res) => res.json())
+
       .then((result) => {
         console.log(result)
-        setFormData('')
+        console.log(formData)
+        setFormData("")
+        console.log(formData)
+
       })
       .catch((err) => console.log('error detail', err))
   }
+
 
   return (
     <div className='App'>
