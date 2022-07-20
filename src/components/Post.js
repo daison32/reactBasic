@@ -12,11 +12,9 @@ const Post = () => {
   }
 
   const eventHandler = () => {
-    console.log(formData.name)
+    console.log(formData)
     axios
-      .post(baseURL, {
-        content: formData.name
-      })
+      .post(baseURL, formData)
       .then((res) => console.log(res))
 
       .then((result) => {
