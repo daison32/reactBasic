@@ -11,7 +11,6 @@ const Fetch = () => {
     axios.get(baseURL)
       .then((res) => res.data)
       .then((data) => {
-            console.log(data);
             setTasks(data.tasks);
             setLoading(false);
     });
