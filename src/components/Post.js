@@ -1,4 +1,7 @@
 import React, { useState } from 'react'
+import axios from "axios";
+
+const baseURL = "https://gorensyu.herokuapp.com/tasks"
 
 const Post = () => {
   const [formData, setFormData] = useState({})
@@ -9,21 +12,15 @@ const Post = () => {
   }
 
   const eventHandler = () => {
-    fetch('https://gorensyu.herokuapp.com/tasks', {
-      method: 'POST',
-      handlers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    })
-      .then((res) => res.json())
+    console.log(formData.name)
+    axios
+      .post(baseURL, {
+        content: formData.name
+      })
+      .then((res) => console.log(res))
 
       .then((result) => {
-        console.log(result)
-        console.log(formData)
         setFormData("")
-        console.log(formData)
-
       })
       .catch((err) => console.log('error detail', err))
   }
