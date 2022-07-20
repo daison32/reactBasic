@@ -8,18 +8,9 @@ const Fetch = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // fetch("https://gorensyu.herokuapp.com/tasks", { method: "GET" })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     console.log(data);
-    //     setTasks(data.tasks);
-    //     setLoading(false);
-    //   });
-
     axios.get(baseURL)
-      .then((res) => res.json())
+      .then((res) => res.data)
       .then((data) => {
-            console.log(data);
             setTasks(data.tasks);
             setLoading(false);
     });
