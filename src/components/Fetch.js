@@ -7,6 +7,7 @@ const completeURL = "https://gorensyu.herokuapp.com/tasks/completion"
 const Fetch = () => {
   const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [formData, setFormData] = useState({});
 
   useEffect(() => {
     axios.get(baseURL)
@@ -19,7 +20,14 @@ const Fetch = () => {
   }, []);
   if (loading) return <p>loading ...</p>;
 
- 
+ const eventHandler = () => {
+    setFormData({id: event.target.id})
+    axios
+    .patch(completeURL, formData)
+    .then((res) => console.log(res))
+    .catch((err) => console.log('error detail', err))
+  
+ }
 
   return (
     <div>
@@ -28,12 +36,7 @@ const Fetch = () => {
         {tasks.map((task) => (
           <>
             <li key={task.id}>{task.content}</li>
-            <input type="checkbox" onChange={
-              axios
-              .patch(completeURL, )
-              .then((res) => console.log(res))
-              .catch((err) => console.log('error detail', err))
-            }></input>
+            <input id={task.id} type="checkbox" onChange={eventHandler}></input>
           </>
         ))}
       </ul>
