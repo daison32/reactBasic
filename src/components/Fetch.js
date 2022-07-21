@@ -13,14 +13,22 @@ const Fetch = () => {
       .then((data) => {
             setTasks(data.tasks);
             setLoading(false);
+            console.log(tasks)
     });
   }, []);
   if (loading) return <p>loading ...</p>;
+
+ 
+
   return (
     <div>
+     
       <ul>
         {tasks.map((task) => (
-          <li key={task.id}>{task.content}</li>
+          <>
+            <li key={task.id}>{task.content}</li>
+            <input type="checkbox" value={task.content}></input>
+          </>
         ))}
       </ul>
     </div>

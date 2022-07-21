@@ -12,7 +12,6 @@ const Post = () => {
   }
 
   const eventHandler = () => {
-    console.log(formData)
     axios
       .post(baseURL, formData)
       .then((res) => console.log(res))
