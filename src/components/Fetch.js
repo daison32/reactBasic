@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const baseURL = "https://gorensyu.herokuapp.com/tasks"
+const completeURL = "https://gorensyu.herokuapp.com/tasks/completion"
 
 const Fetch = () => {
   const [tasks, setTasks] = useState([]);
@@ -27,7 +28,12 @@ const Fetch = () => {
         {tasks.map((task) => (
           <>
             <li key={task.id}>{task.content}</li>
-            <input type="checkbox" value={task.content}></input>
+            <input type="checkbox" onChange={
+              axios
+              .patch(completeURL, )
+              .then((res) => console.log(res))
+              .catch((err) => console.log('error detail', err))
+            }></input>
           </>
         ))}
       </ul>
