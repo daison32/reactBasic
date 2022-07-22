@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import axios from "axios";
 
-const baseURL = "https://gorensyu.herokuapp.com/tasks"
+// const baseURL = "https://gorensyu.herokuapp.com/tasks"
+const baseURL = "http://localhost:8080/tasks"
 
 const Post = () => {
   const [formData, setFormData] = useState({})
@@ -23,11 +24,16 @@ const Post = () => {
       .catch((err) => console.log('error detail', err))
   }
 
+  // const deleteHandler = () => {
+  //   axios
+  //     .delete(baseURL, )
+  // }
 
   return (
     <div className='App'>
       <input value={formData.name} onChange={handleChange} />
-      <button onClick={eventHandler}>click</button>
+      <button onClick={eventHandler}>追加</button>
+      {/* <button onClick={deleteHandler}>完了したタスクを削除</button> */}
     </div>
   )
 }
