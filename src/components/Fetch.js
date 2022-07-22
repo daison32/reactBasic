@@ -25,6 +25,7 @@ const Fetch = () => {
  const eventHandler = (event) => {
     setFormData({id: event.target.id})
     // ↑が機能していない
+    console.log({id: event.target.id})
     console.log(formData)
     axios
     .patch(completeURL, formData)
