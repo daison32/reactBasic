@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const baseURL = "https://gorensyu.herokuapp.com/tasks"
-const completeURL = "https://gorensyu.herokuapp.com/tasks/completion"
+const baseURL = "http://localhost:8080/tasks"
+const completeURL = "http://localhost:8080/tasks/completion"
+
+// const baseURL = "https://gorensyu.herokuapp.com/tasks"
+// const completeURL = "https://gorensyu.herokuapp.com/tasks/completion"
 
 const Fetch = () => {
   const [tasks, setTasks] = useState([]);
@@ -15,13 +18,13 @@ const Fetch = () => {
       .then((data) => {
             setTasks(data.tasks);
             setLoading(false);
-            console.log(tasks)
     });
   }, []);
   if (loading) return <p>loading ...</p>;
 
- const eventHandler = () => {
+ const eventHandler = (event) => {
     setFormData({id: event.target.id})
+    console.log(formData)
     axios
     .patch(completeURL, formData)
     .then((res) => console.log(res))
