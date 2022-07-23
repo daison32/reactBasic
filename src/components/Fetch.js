@@ -10,7 +10,7 @@ const completeURL = "http://localhost:8080/tasks/completion"
 const Fetch = () => {
   const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState([]);
 
   useEffect(() => {
     axios.get(baseURL)
@@ -22,26 +22,29 @@ const Fetch = () => {
   }, []);
   if (loading) return <p>loading ...</p>;
 
- const eventHandler = (event) => {
+ const handleChange = (event) => {
     setFormData({id: event.target.id})
     // ↑が機能していない
     console.log({id: event.target.id})
-    console.log(formData)
-    axios
+  
+ }
+ const eventHandler = () => {
+  console.log(formData)
+
+  axios
     .patch(completeURL, formData)
     .then((res) => console.log(res))
     .catch((err) => console.log('error detail', err))
-  
  }
 
   return (
     <div>
-     
       <ul>
         {tasks.map((task) => (
           <>
             <li key={task.id}>{task.content}</li>
-            <input id={task.id} type="checkbox" onChange={eventHandler}></input>
+            <input id={task.id} type="checkbox" onChange={handleChange}></input>
+            <button onClick={eventHandler}>完了を確定</button>
           </>
         ))}
       </ul>
