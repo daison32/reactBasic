@@ -41,11 +41,11 @@ const Fetch = () => {
     <div>
       <ul>
         {tasks.map((task) => (
-          <>
-            <li key={task.id}>{task.content}</li>
+          <div key={task.id}>
+            <li >{task.content}</li>
             <input id={task.id} type="checkbox" onChange={handleChange}></input>
             <button onClick={eventHandler}>完了を確定</button>
-          </>
+          </div>
         ))}
       </ul>
     </div>

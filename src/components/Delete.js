@@ -10,7 +10,7 @@ const Delete = () => {
   const eventHandler = () => {
     console.log(formData)
     axios
-      .post(baseURL, formData)
+      .delete(baseURL, formData)
       .then((res) => console.log(res))
 
       .then((result) => {
