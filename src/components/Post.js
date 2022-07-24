@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import axios from "axios";
 
-// const baseURL = "https://gorensyu.herokuapp.com/tasks"
-const baseURL = "http://localhost:8080/tasks"
+const baseURL = "https://gorensyu.herokuapp.com/tasks"
+// const baseURL = "http://localhost:8080/tasks"
 
 const Post = () => {
   const [formData, setFormData] = useState({})
@@ -18,10 +18,14 @@ const Post = () => {
       .post(baseURL, formData)
       .then((res) => console.log(res))
 
-      .then((result) => {
-        setFormData("")
+      .then(() => {
+        autoReload()
       })
       .catch((err) => console.log('error detail', err))
+  }
+
+  const autoReload = () => {
+    window.location.reload()
   }
 
   // const deleteHandler = () => {
