@@ -10,7 +10,7 @@ const Delete = () => {
     axios
       .delete(baseURL)
       .then(() => {
-        alert("Post deleted!");
+        window.location.reload()
       });
     
   }

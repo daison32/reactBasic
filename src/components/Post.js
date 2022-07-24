@@ -19,14 +19,11 @@ const Post = () => {
       .then((res) => console.log(res))
 
       .then(() => {
-        autoReload()
+        window.location.reload()
       })
       .catch((err) => console.log('error detail', err))
   }
 
-  const autoReload = () => {
-    window.location.reload()
-  }
 
   // const deleteHandler = () => {
   //   axios
