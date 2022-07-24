@@ -10,10 +10,10 @@ const completeURL = "https://gorensyu.herokuapp.com/tasks/completion"
 
 const Complete = (props) => {
 
-  console.log('props', props)
+  // console.log('props', props)
     const handleChange = async (task) => {
-      
       const sentId = document.getElementById(props.task.id).checked
+      console.log(sentId)
 
         await axios
         .patch(completeURL, {id: task.id, isComplete: sentId})
