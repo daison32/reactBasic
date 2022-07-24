@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Complete from "./Complete";
 
 // const baseURL = "http://localhost:8080/tasks"
 // const completeURL = "http://localhost:8080/tasks/completion"
@@ -46,7 +47,11 @@ const Fetch = () => {
         {tasks.map((task) => (
           <div key={task.id}>
             <li >{task.content}</li>
-            <input id={task.id} type="checkbox" onChange={() => handleChange(task.id)}></input>
+            <Complete 
+              task = {task}
+              // id = {task.id}
+              
+            />
             <button onClick={eventHandler}>完了を確定</button>
           </div>
         ))}
