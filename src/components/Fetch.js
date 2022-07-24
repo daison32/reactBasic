@@ -18,14 +18,16 @@ const Fetch = () => {
       .then((data) => {
             setTasks(data.tasks);
             setLoading(false);
+            
     });
   }, []);
   if (loading) return <p>loading ...</p>;
 
+  console.log(tasks)
+
  const handleChange = (id) => {
     setFormData({id: id})
     console.log({id: id})
-  
  }
  const eventHandler = () => {
   console.log(formData)
@@ -35,6 +37,8 @@ const Fetch = () => {
     .then((res) => console.log(res))
     .catch((err) => console.log('error detail', err))
  }
+
+
 
   return (
     <div>
