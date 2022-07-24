@@ -1,36 +1,35 @@
 import React, { useState } from 'react'
 import axios from "axios";
 
-// const baseURL = "http://localhost:8080/tasks"
-// const completeURL = "http://localhost:8080/tasks/completion"
+const baseURL = "http://localhost:8080/tasks"
+const completeURL = "http://localhost:8080/tasks/completion"
 
-const baseURL = "https://gorensyu.herokuapp.com/tasks"
-const completeURL = "https://gorensyu.herokuapp.com/tasks/completion"
+// const baseURL = "https://gorensyu.herokuapp.com/tasks"
+// const completeURL = "https://gorensyu.herokuapp.com/tasks/completion"
 
 
 const Complete = (props) => {
-  const [formData, setFormData] = useState({});
 
   console.log('props', props)
-    const handleChange = async (id) => {
-        setFormData({id: id})
-        console.log(formData)
+    const handleChange = async (task) => {
+      
+      const sentId = document.getElementById(props.task.id).checked
 
-        axios
-        .patch(completeURL, formData)
+        await axios
+        .patch(completeURL, {id: task.id, isComplete: sentId})
         .then((res) => console.log(res))
+        .then(window.location.reload())
         .catch((err) => console.log('error detail', err))
      }
-console.log('props', props)
+
     return (
       <div className='App'>
-       {/* <input id={task.id} type="checkbox" checked={task.isComplete} onChange={() => handleChange(task.id)}></input> */}
         <input 
           type="checkbox" 
+          id={props.task.id}
           checked={props.task.isComplete}
-          onChange={() => handleChange(props.task.id)}
-        >
-        </input>
+          onChange={() => handleChange(props.task)}
+        ></input>
       </div>
     ) 
 }
