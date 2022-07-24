@@ -46,7 +46,7 @@ const Fetch = () => {
         {tasks.map((task) => (
           <div key={task.id}>
             <li >{task.content}</li>
-            <input id={task.id} type="checkbox" onChange={() => handleChange(task.id)}></input>
+            <input id={task.id} type="checkbox" checked={task.isComplete} onChange={() => handleChange(task.id)}></input>
             <button onClick={eventHandler}>完了を確定</button>
           </div>
         ))}
