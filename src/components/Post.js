@@ -19,10 +19,9 @@ const Post = () => {
       .then((res) => console.log(res))
 
       .then(() => {
-        setFormData("")
+        autoReload()
       })
       .catch((err) => console.log('error detail', err))
-    autoReload()
   }
 
   const autoReload = () => {
