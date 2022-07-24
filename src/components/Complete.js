@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import axios from "axios";
 
-const baseURL = "http://localhost:8080/tasks"
-const completeURL = "http://localhost:8080/tasks/completion"
+// const baseURL = "http://localhost:8080/tasks"
+// const completeURL = "http://localhost:8080/tasks/completion"
 
-// const baseURL = "https://gorensyu.herokuapp.com/tasks"
-// const completeURL = "https://gorensyu.herokuapp.com/tasks/completion"
+const baseURL = "https://gorensyu.herokuapp.com/tasks"
+const completeURL = "https://gorensyu.herokuapp.com/tasks/completion"
 
 
 const Complete = (props) => {

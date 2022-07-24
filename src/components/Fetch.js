@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Complete from "./Complete";
 
-const baseURL = "http://localhost:8080/tasks"
-const completeURL = "http://localhost:8080/tasks/completion"
+// const baseURL = "http://localhost:8080/tasks"
+// const completeURL = "http://localhost:8080/tasks/completion"
 
-// const baseURL = "https://gorensyu.herokuapp.com/tasks"
-// const completeURL = "https://gorensyu.herokuapp.com/tasks/completion"
+const baseURL = "https://gorensyu.herokuapp.com/tasks"
+const completeURL = "https://gorensyu.herokuapp.com/tasks/completion"
 
 const Fetch = () => {
   const [tasks, setTasks] = useState([]);

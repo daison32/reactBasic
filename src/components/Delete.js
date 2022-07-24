@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import axios from "axios";
 
-const baseURL = "http://localhost:8080/tasks"
-// const baseURL = "https://gorensyu.herokuapp.com/tasks"
+// const baseURL = "http://localhost:8080/tasks"
+const baseURL = "https://gorensyu.herokuapp.com/tasks"
 
 const Delete = () => {
 
