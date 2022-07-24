@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const baseURL = "http://localhost:8080/tasks"
-const completeURL = "http://localhost:8080/tasks/completion"
+// const baseURL = "http://localhost:8080/tasks"
+// const completeURL = "http://localhost:8080/tasks/completion"
 
-// const baseURL = "https://gorensyu.herokuapp.com/tasks"
-// const completeURL = "https://gorensyu.herokuapp.com/tasks/completion"
+const baseURL = "https://gorensyu.herokuapp.com/tasks"
+const completeURL = "https://gorensyu.herokuapp.com/tasks/completion"
 
 const Fetch = () => {
   const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [formData, setFormData] = useState([]);
+  const [formData, setFormData] = useState({});
 
   useEffect(() => {
     axios.get(baseURL)
@@ -22,10 +22,9 @@ const Fetch = () => {
   }, []);
   if (loading) return <p>loading ...</p>;
 
- const handleChange = (event) => {
-    setFormData({id: Number(event.target.id)})
-    // ↑が機能していない
-    console.log({id: Number(event.target.id)})
+ const handleChange = (id) => {
+    setFormData({id: id})
+    console.log({id: id})
   
  }
  const eventHandler = () => {
@@ -43,7 +42,7 @@ const Fetch = () => {
         {tasks.map((task) => (
           <div key={task.id}>
             <li >{task.content}</li>
-            <input id={Number(task.id)} type="checkbox" onChange={handleChange}></input>
+            <input id={task.id} type="checkbox" onChange={() => handleChange(task.id)}></input>
             <button onClick={eventHandler}>完了を確定</button>
           </div>
         ))}

@@ -1,22 +1,18 @@
 import React, { useState } from 'react'
 import axios from "axios";
 
-// const baseURL = "https://gorensyu.herokuapp.com/tasks"
+// const baseURL = "http://localhost:8080/tasks"
 const baseURL = "https://gorensyu.herokuapp.com/tasks"
 
 const Delete = () => {
-  const [formData, setFormData] = useState({})
 
   const eventHandler = () => {
-    console.log(formData)
     axios
-      .delete(baseURL, formData)
-      .then((res) => console.log(res))
-
-      .then((result) => {
-        setFormData("")
-      })
-      .catch((err) => console.log('error detail', err))
+      .delete(baseURL)
+      .then(() => {
+        alert("Post deleted!");
+      });
+    
   }
 
   return (
