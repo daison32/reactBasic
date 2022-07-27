@@ -12,15 +12,16 @@ const Complete = (props) => {
 
   // console.log('props', props)
     const handleChange = async (task) => {
-      const sentId = document.getElementById(props.task.id).checked
-      console.log(sentId)
-
+      try {
+        const sentId = document.getElementById(props.task.id).checked
         await axios
         .patch(completeURL, {id: task.id, isComplete: sentId})
         .then((res) => console.log(res))
         .then(window.location.reload())
-        .catch((err) => console.log('error detail', err))
-     }
+      } catch (err) {
+        console.log('error detail', err)
+      }
+    }
 
     return (
       <div className='App'>
@@ -35,3 +36,4 @@ const Complete = (props) => {
 }
 
 export default Complete
+
