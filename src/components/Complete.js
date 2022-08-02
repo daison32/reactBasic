@@ -14,10 +14,11 @@ const Complete = (props) => {
     const handleChange = async (task) => {
       try {
         const sentId = document.getElementById(props.task.id).checked
-        await axios
-        .patch(completeURL, {id: task.id, isComplete: sentId})
-        .then((res) => console.log(res))
-        .then(window.location.reload())
+         
+        const res = await
+        axios.patch(completeURL, {id: task.id, isComplete: sentId})
+        console.log(res)
+        window.location.reload()
       } catch (err) {
         console.log('error detail', err)
       }
